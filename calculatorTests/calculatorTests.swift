@@ -10,27 +10,78 @@ import XCTest
 
 final class calculatorTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func  testPositiveScenarioForAddCalculation(){
+        let value1: Int = 3
+        let value2: Int = 2
+        
+        let result = Calculations().add(value1: value1, value2: value2)
+        
+        XCTAssertEqual(5, result)
+        
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func  testNegativeScenarioForAddCalculation(){
+        let value1: Int = 1
+        let value2: Int = 2
+        
+        let result = Calculations().add(value1: value1, value2: value2)
+        
+        XCTAssertNotEqual(5, result)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func  testPositiveScenarioForSubCalculation(){
+        let value1: Int = 3
+        let value2: Int = 2
+        
+        let result = Calculations().subtract(value1: value1, value2: value2)
+        
+        XCTAssertEqual(1, result)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func  testNegativeScenarioForSubCalculation(){
+        let value1: Int = 3
+        let value2: Int = 2
+        
+        let result = Calculations().subtract(value1: value1, value2: value2)
+        
+        XCTAssertNotEqual(3, result)
+    }
+    func  testPositiveScenarioForProdCalculation(){
+        let value1: Int = 3
+        let value2: Int = 2
+        
+        let result = Calculations().multiply(value1: value1, value2: value2)
+        
+        XCTAssertEqual(6, result)
+    }
+    func  testNegativeScenarioForProdCalculation(){
+        let value1: Int = 3
+        let value2: Int = 2
+        
+        let result = Calculations().multiply(value1: value1, value2: value2)
+        
+        XCTAssertNotEqual(1, result)
+    }
+    func testPositiveScenarioForDivCalculation(){
+        let value1: Int = 4
+        let value2: Int = 2
+        
+        let result = Calculations().divide(value1: value2, value2: value1)
+        
+        XCTAssertEqual(2.0, result)
+    }
+    func testZeroScenarioForDivCalculation(){
+        let value1: Int = 3
+        let value2: Int = 0
+        
+        let result = Calculations().divide(value1: value1, value2: value2)
+        
+        XCTAssertNil(result)
+    }
+    func testPositiveScenarioForSinCalculation(){
+        let value: Double = 4.0
+        
+        let result = Calculations().sinus(value: value)
+        
+        XCTAssertLessThanOrEqual(-1, result)
+        XCTAssertGreaterThanOrEqual(1, result)
     }
 
 }
